@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const whoIs = require('./middleware/whoIs');
 const AuthRoute = require('./routes/authRoute');
 const ProjectRoute = require('./routes/projectRoute');
+const MessageRoute = require('./routes/messageRoute');
 
 // const UserRoute = require('./Routes/UserRoute/UserRoute');
 // const whoIs = require('./Middleware/whois');
@@ -18,9 +19,8 @@ app.use(express.json())
 
 app.use('/project', whoIs, ProjectRoute)
 app.use('/auth', AuthRoute)
-app.get('/', (req, res)=>{
-    res.send('Infographicer')
-})
+app.use('/message', MessageRoute)
+
 app.listen(PORT, function () {
     console.log("Listening on port "+PORT);
 });
