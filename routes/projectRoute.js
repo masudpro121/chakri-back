@@ -16,6 +16,7 @@ ProjectRoute.post('/add', (req, res)=>{
     })
 })
 ProjectRoute.get('/all', (req, res)=>{
+    console.log(req.user, 'user');
     ProjectModel.find({user: req.user.id})
     .then(result=>{
         res.send(result)
